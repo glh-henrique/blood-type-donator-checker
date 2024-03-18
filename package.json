@@ -1,15 +1,15 @@
 {
   "name": "blood-type-donator-checker",
-  "homepage": "https://glh-henrique.github.io/blood-type-donator-checker",
-  "version": "0.0.0",
+  "homepage": "https://glh-henrique.github.io/blood-type-donator-checker/",
+  "version": "1.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
+    "predeploy": "npm run build -- --prod=true --base-href=<homeURL>/",
+    "deploy": "@powershell copy dist/blood-type-donator-checker/index.html dist/blood-type-donator-checker/404.html && gh-pages -d dist/blood-type-donator-checker",
     "test": "ng test",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
     "serve:ssr:blood-type-donator-checker": "node dist/blood-type-donator-checker/server/server.mjs"
   },
   "private": true,

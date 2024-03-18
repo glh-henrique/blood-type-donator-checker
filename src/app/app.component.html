@@ -1,0 +1,29 @@
+<div class="container">
+  <h1>{{ title }}</h1>
+
+  <select [(ngModel)]="selectedType" (change)="selectType($event.target)" aria-label="select blood type">
+    @for (blood of bloodTypes; track blood.type) {
+    <option value="{{ blood.type }}">{{ blood.type }}</option>
+    } @empty {
+    <option value="">====</option>
+    }
+  </select>
+
+  <p>Você pode receber sangue dos tipos:</p>
+  <ul>
+    @for (bloodType of receivesFrom; track bloodType) {
+    <li>{{ bloodType }}</li>
+    } @empty {
+    <li>====</li>
+    }
+  </ul>
+
+  <p>Você pode doar sangue para os tipos:</p>
+  <ul>
+    @for (bloodType of donateTo; track bloodType) {
+      <li>{{ bloodType }}</li>
+      } @empty {
+      <li>====</li>
+      }
+  </ul>
+</div>

@@ -7,8 +7,7 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "predeploy": "npm run build -- --prod=true --base-href=https://glh-henrique.github.io/blood-type-donator-checker/",
-    "deploy": "@powershell copy dist/blood-type-donator-checker/server/server.mjs && gh-pages -d dist/blood-type-donator-checker",
+    "deploy": "ng deploy --base-href=/blood-type-donator-checker/",
     "test": "ng test",
     "serve:ssr:blood-type-donator-checker": "node dist/blood-type-donator-checker/server/server.mjs"
   },
@@ -24,6 +23,7 @@
     "@angular/platform-server": "^17.2.0",
     "@angular/router": "^17.2.0",
     "@angular/ssr": "^17.2.1",
+    "bootstrap": "^5.3.3",
     "express": "^4.18.2",
     "firebase": "^10.9.0",
     "rxjs": "~7.8.0",

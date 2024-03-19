@@ -1,14 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
-import { initializeApp  } from "firebase/app";
-
 import { FormsModule } from '@angular/forms';
 import { BloodType } from './blood-type.model';
 import { BloodTypeService } from './blood-type.service';
-
-const firebaseConfig = {
-  measurementId: "G-JKJC7YDX36"
-};
 
 @Component({
   selector: 'app-root',
@@ -29,7 +23,6 @@ export class AppComponent implements OnInit {
   constructor(private bloodTypeService: BloodTypeService) {}
 
   ngOnInit() {
-    this.initializeFirebase();
     this.bloodTypes = this.bloodTypeService.bloodTypes;
   }
 
@@ -39,9 +32,5 @@ export class AppComponent implements OnInit {
     this.selectedType = (bloodType as HTMLSelectElement).value;
     this.receivesFrom = this.bloodTypeService.receivesFrom(this.selectedType);
     this.donateTo = this.bloodTypeService.donateTo(this.selectedType);
-  }
-
-  private initializeFirebase() {
-    initializeApp(firebaseConfig);
   }
 }

@@ -1,29 +1,78 @@
+<nav class="navbar bg-body-tertiary">
+  <div class="limit-width container-fluid">
+    <span class="navbar-brand">
+      <img
+        src="../assets/blood-donation.png"
+        alt="logo donation blood"
+        height="50"
+      />
+      {{ title }}
+    </span>
+    <span class="navbar-text">
+      <a class="" href="">
+        <img src="../assets/git.png" alt="github" height="20" />
+      </a>
+    </span>
+  </div>
+</nav>
+
 <div class="container">
   <h1>{{ title }}</h1>
 
-  <select [(ngModel)]="selectedType" (change)="selectType($event.target)" aria-label="select blood type">
-    @for (blood of bloodTypes; track blood.type) {
-    <option value="{{ blood.type }}">{{ blood.type }}</option>
-    } @empty {
-    <option value="">====</option>
-    }
-  </select>
+  <div class="row">
+    <div class="col">
+      <div class="form-floating">
+        <select
+          class="form-select"
+          id="floatingSelect"
+          aria-label="select blood type"
+          [(ngModel)]="selectedType"
+          (change)="selectType($event.target)"
+        >
+          <option value="" selected>Selecione um tipo de sangue</option>
+          @for (blood of bloodTypes; track blood.type) {
+          <option value="{{ blood.type }}">{{ blood.type }}</option>
+          }
+        </select>
+        <label for="floatingSelect">Select you blood type</label>
+      </div>
 
-  <p>Você pode receber sangue dos tipos:</p>
-  <ul>
-    @for (bloodType of receivesFrom; track bloodType) {
-    <li>{{ bloodType }}</li>
-    } @empty {
-    <li>====</li>
-    }
-  </ul>
+      <div>
+        <p>Você pode receber sangue dos tipos:</p>
+        <ul>
+          @for (bloodType of receivesFrom; track bloodType) {
+          <li>{{ bloodType }}</li>
+          } @empty {
+          <li>====</li>
+          }
+        </ul>
 
-  <p>Você pode doar sangue para os tipos:</p>
-  <ul>
-    @for (bloodType of donateTo; track bloodType) {
-      <li>{{ bloodType }}</li>
-      } @empty {
-      <li>====</li>
-      }
-  </ul>
+        <p>Você pode doar sangue para os tipos:</p>
+        <ul>
+          @for (bloodType of donateTo; track bloodType) {
+          <li>{{ bloodType }}</li>
+          } @empty {
+          <li>====</li>
+          }
+        </ul>
+      </div>
+    </div>
+    <div class="col">
+      <div class="clearfix">
+        <img src="../assets/blood-transfu-vector.png" class="col-md-6 float-md-end mb-3 ms-md-3" alt="...">
+
+        <p>
+          A paragraph of placeholder text. We're using it here to show the use of the clearfix class. We're adding quite a few meaningless phrases here to demonstrate how the columns interact here with the floated image.
+        </p>
+
+        <p>
+          As you can see the paragraphs gracefully wrap around the floated image. Now imagine how this would look with some actual content in here, rather than just this boring placeholder text that goes on and on, but actually conveys no tangible information at. It simply takes up space and should not really be read.
+        </p>
+
+        <p>
+          And yet, here you are, still persevering in reading this placeholder text, hoping for some more insights, or some hidden easter egg of content. A joke, perhaps. Unfortunately, there's none of that here.
+        </p>
+      </div>
+    </div>
+  </div>
 </div>

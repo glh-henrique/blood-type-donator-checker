@@ -1,7 +1,7 @@
 {
   "name": "blood-type-donator-checker",
   "homepage": "https://glh-henrique.github.io/blood-type-donator-checker/",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",

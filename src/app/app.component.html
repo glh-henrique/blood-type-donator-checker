@@ -1,95 +1,116 @@
-<nav class="navbar bg-body-tertiary">
+<nav class="navbar bg-body-tertiary custom-nav">
   <div class="limit-width container-fluid">
-    <span class="navbar-brand">
+    <div class="navbar-brand custom-nav-brand">
       <img
         src="/blood-type-donator-checker/assets/blood-donation.png"
         alt="logo donation blood"
         height="50"
       />
-      {{ title }}
-    </span>
+      {{ title_header }}
+    </div>
     <span class="navbar-text">
-      <a class="" href="">
-        <img
-          src="/blood-type-donator-checker/assets/git.png"
-          alt="github"
-          height="20"
-        />
+      <a
+        href="https://github.com/glh-henrique/blood-type-donator-checker"
+        target="_blank"
+      >
+        <img src="/blood-type-donator-checker/assets/git.png" alt="github" height="20" />
       </a>
     </span>
   </div>
 </nav>
 
-<div class="container">
-  <h1>{{ title }}</h1>
+<div class="container max-width">
+  <h1 class="title">{{ title }}</h1>
 
-  <div class="row">
-    <div class="col">
-      <div class="form-floating">
+  <div class="row controler-mobile">
+    <div class="col col-md-6 col-sm-12">
+      <div class="container-select">
         <select
           class="form-select"
-          id="floatingSelect"
           aria-label="select blood type"
           [(ngModel)]="selectedType"
           (change)="selectType($event.target)"
         >
-          <option value="" selected>Selecione um tipo de sangue</option>
+          <option value="#" selected>Selecione um tipo de sangue</option>
           @for (blood of bloodTypes; track blood.type) {
           <option value="{{ blood.type }}">{{ blood.type }}</option>
           }
         </select>
-        <label for="floatingSelect">Select you blood type</label>
       </div>
 
-      <div>
-        <p>Você pode receber sangue dos tipos:</p>
-        <ul>
-          @for (bloodType of receivesFrom; track bloodType) {
-          <li>{{ bloodType }}</li>
-          } @empty {
-          <li>====</li>
-          }
-        </ul>
+      <div class="container-result">
+        <div class="card mb-3" >
+          <div class="row g-0">
+            <div class="col-md-4 container-type-selected">
+              <p class="card-title">Tipo selecionado:</p>
+              <span class="selected-blood-type">{{ selectedType }}</span>
+            </div>
+            <div class="col-md-8">
+              <div class="card-body border-left">
+                <p>Você pode receber sangue dos tipos:</p>
+                <ul>
+                  @for (bloodType of receivesFrom; track bloodType) {
+                  <li>{{ bloodType }}</li>
+                  } @empty {
+                  <li>####</li>
+                  }
+                </ul>
 
-        <p>Você pode doar sangue para os tipos:</p>
-        <ul>
-          @for (bloodType of donateTo; track bloodType) {
-          <li>{{ bloodType }}</li>
-          } @empty {
-          <li>====</li>
-          }
-        </ul>
+                <p>Você pode doar sangue para os tipos:</p>
+                <ul>
+                  @for (bloodType of donateTo; track bloodType) {
+                  <li>{{ bloodType }}</li>
+                  } @empty {
+                  <li>####</li>
+                  }
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="col">
+
+    <div class="col col-md-6 col-sm-12">
       <div class="clearfix">
         <img
           src="/blood-type-donator-checker/assets/blood-transfu-vector.png"
-          class="col-md-6 float-md-end mb-3 ms-md-3 .col-sm-6"
-          alt="..."
+          class="img-mobile-width col-md-6 float-md-end mb-3 ms-md-3 col-sm-12 col-xs-12"
+          alt="blood transfusion"
         />
 
         <p>
-          A paragraph of placeholder text. We're using it here to show the use
-          of the clearfix class. We're adding quite a few meaningless phrases
-          here to demonstrate how the columns interact here with the floated
-          image.
+          Bem-vindo ao <strong>Blood Type Checker</strong> seu guia confiável
+          para entender melhor o seu tipo sanguíneo e como ele pode impactar
+          suas doações e recebimentos. Descubra a chave para salvar vidas
+          através da doação de sangue de forma consciente e eficaz.
         </p>
 
         <p>
-          As you can see the paragraphs gracefully wrap around the floated
-          image. Now imagine how this would look with some actual content in
-          here, rather than just this boring placeholder text that goes on and
-          on, but actually conveys no tangible information at. It simply takes
-          up space and should not really be read.
+          Seja você um doador regular ou alguém que está considerando doar pela
+          primeira vez, entender o seu tipo sanguíneo é fundamental. O intuito
+          do site oferece uma plataforma simples e intuitiva para ajudá-lo a
+          determinar seu tipo sanguíneo e fornecer informações essenciais sobre
+          compatibilidade de doação.
         </p>
 
         <p>
-          And yet, here you are, still persevering in reading this placeholder
-          text, hoping for some more insights, or some hidden easter egg of
-          content. A joke, perhaps. Unfortunately, there's none of that here.
+          Com o Blood Type Checker, você terá acesso a recursos abrangentes
+          sobre os diferentes tipos sanguíneos, suas características distintas e
+          quais são compatíveis entre si para doação e transfusão. Junte-se a
+          nós nesta missão vital de salvar vidas. Explore o Blood Type Checker
+          hoje mesmo e descubra como seu tipo sanguíneo pode fazer a diferença
+          no mundo.
         </p>
       </div>
     </div>
   </div>
 </div>
+
+<footer class="footer bg-body-tertiary">
+  <div class="limit-width container-fluid container-text-footer">
+    Developed by
+    <a href="https://glh-henrique.github.io/glh-resume/" class="me" target="_blank">Me</a>
+    :)
+  </div>
+</footer>

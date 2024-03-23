@@ -12,11 +12,12 @@ import { BloodTypeService } from './blood-type.service';
   styleUrl: './app.component.scss',
 })
 export class AppComponent implements OnInit {
-  title = 'blood-type-donator-checker';
+  title = 'Veja os tipos sanguíneos e suas compatibilidades';
+  title_header = 'Blood Type checker';
 
   bloodTypes: BloodType[] = [];
 
-  selectedType: string = '';
+  selectedType: string = '#';
   receivesFrom: string[] = [];
   donateTo: string[] = [];
 

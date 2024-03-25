@@ -1,0 +1,28 @@
+<div class="btn-group" role="group">
+  <button
+    type="button"
+    class="btn btn-link nav-link dropdown-toggle d-flex align-items-center"
+    data-bs-display="static"
+    data-bs-toggle="dropdown"
+    aria-expanded="false"
+  >
+    Theme: {{ theme }}
+  </button>
+  <ul class="dropdown-menu">
+    <li>
+      <button class="dropdown-item" (click)="onThemeChange('light')">
+        light
+      </button>
+    </li>
+    <li>
+      <button class="dropdown-item" (click)="onThemeChange('dark')">
+        dark
+      </button>
+    </li>
+    <li>
+      <button class="dropdown-item"  (click)="onThemeChange('auto')">
+        auto
+      </button>
+    </li>
+  </ul>
+</div>

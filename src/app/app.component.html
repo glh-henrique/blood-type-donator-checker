@@ -1,23 +1,4 @@
-<nav class="navbar bg-body-tertiary custom-nav">
-  <div class="limit-width container-fluid">
-    <div class="navbar-brand custom-nav-brand">
-      <img
-        src="/blood-type-donator-checker/assets/blood-donation.png"
-        alt="logo donation blood"
-        height="50"
-      />
-      {{ title_header }}
-    </div>
-    <span class="navbar-text">
-      <a
-        href="https://github.com/glh-henrique/blood-type-donator-checker"
-        target="_blank"
-      >
-        <img src="/blood-type-donator-checker/assets/git.png" alt="github" height="20" />
-      </a>
-    </span>
-  </div>
-</nav>
+<app-nav></app-nav>
 
 <div class="container max-width">
   <h1 class="title">{{ title }}</h1>
@@ -74,7 +55,7 @@
     <div class="col col-md-6 col-sm-12">
       <div class="clearfix">
         <img
-          src="/blood-type-donator-checker/assets/blood-transfu-vector.png"
+          src="assets/blood-transfu-vector.png"
           class="img-mobile-width col-md-6 float-md-end mb-3 ms-md-3 col-sm-12 col-xs-12"
           alt="blood transfusion"
         />
@@ -107,10 +88,4 @@
   </div>
 </div>
 
-<footer class="footer bg-body-tertiary">
-  <div class="limit-width container-fluid container-text-footer">
-    Developed by
-    <a href="https://glh-henrique.github.io/glh-resume/" class="me" target="_blank">Me</a>
-    :)
-  </div>
-</footer>
+<app-footer></app-footer>

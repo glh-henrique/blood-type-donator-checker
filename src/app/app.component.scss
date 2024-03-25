@@ -3,7 +3,7 @@
 }
 
 .custom-nav {
-  background-color: #ffffff !important;
+  // background-color: #ffffff !important;
   margin-bottom: 40px;
 
   .custom-nav-brand {
@@ -81,24 +81,4 @@
   }
 }
 
-.footer {
-  position: fixed;
-  width: 100%;
-  bottom: 0;
 
-  .container-text-footer {
-    height: 100%;
-    padding: 10px;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    align-content: center;
-    justify-content: center;
-    align-items: center;
-
-    .me {
-      margin-left: 5px;
-      margin-right: 5px;
-    }
-  }
-}

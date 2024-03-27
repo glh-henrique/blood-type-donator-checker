@@ -30,7 +30,8 @@ export class AppComponent implements OnInit {
     private bloodTypeService: BloodTypeService
   ) {
     const theme = this.themeService.getPreferredTheme();
-    this.themeService.setTheme(theme);
+    const isDark = theme === 'dark' ? true : false;
+    this.themeService.setTheme(isDark);
     this.setBasePath();
   }
 

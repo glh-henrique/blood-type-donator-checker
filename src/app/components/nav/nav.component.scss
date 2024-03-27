@@ -1,4 +1,15 @@
 .navbar-text {
   display: flex;
-  gap: 25px;
+  gap: 15px;
+  align-items: center;
+}
+
+.nav-logo {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.git-icon {
+  font-size: 25px;
 }

@@ -1,22 +1,23 @@
 import { Component } from '@angular/core';
 import { ThemeService } from './theme.service';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-theme',
   standalone: true,
-  imports: [],
+  imports: [FormsModule],
   templateUrl: './theme.component.html',
   styleUrl: './theme.component.scss'
 })
 export class ThemeComponent {
-  theme: string = 'auto';
+  isDark = false;
 
   constructor(private themeService: ThemeService) {
-    this.theme = themeService.getPreferredTheme();
-  }
+    this.isDark = this.themeService.getPreferredTheme() === 'dark';
+   }
 
-  onThemeChange(themeSelected: string) {
-    this.theme = themeSelected;
-    this.themeService.setTheme(themeSelected);
+  isDarkTheme(): boolean {
+    this.themeService.setTheme(this.isDark);
+    return !this.isDark
   }
 }

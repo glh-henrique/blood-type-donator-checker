@@ -22,19 +22,15 @@ export class ThemeService {
   getPreferredTheme(): string {
     if (typeof window !== 'undefined') {
       const storedTheme = this.getStoredTheme();
-      if (storedTheme === 'light' || storedTheme === 'dark') {
+      if (storedTheme !== null && storedTheme !== undefined) { // Added null check
         return storedTheme;
       }
-
-      return window.matchMedia('(prefers-color-scheme: dark)').matches
-        ? 'dark'
-        : 'light';
-    } else {
-      return 'light';
     }
+    return 'light';
   }
 
-  setTheme(theme: string): void {
+  setTheme(isDark: boolean): void {
+    const theme = isDark ? 'dark' : 'light';
     if (typeof window !== 'undefined') {
       this.setStoredTheme(theme);
       this.document.documentElement.setAttribute('data-bs-theme', theme);

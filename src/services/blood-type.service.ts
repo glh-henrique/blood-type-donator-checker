@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { BloodType } from './blood-type.model';
-import { bloodTypes } from './data-blood-types';
+import { BloodType } from '../model/blood-type.model';
+import { bloodTypes } from '../data/data-blood-types';
+
 
 @Injectable({
   providedIn: 'root'

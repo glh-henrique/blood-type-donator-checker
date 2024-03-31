@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 
 import { of } from 'rxjs';
-import { BloodTypeService } from './blood-type.service';
+import { BloodTypeService } from '../services/blood-type.service';
 
 describe('AppComponent', () => {
   let component: AppComponent;

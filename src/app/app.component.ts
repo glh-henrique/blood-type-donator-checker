@@ -1,11 +1,9 @@
-import { Component, Inject, OnInit, isDevMode } from '@angular/core';
-import { DOCUMENT } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { Component, Inject, isDevMode } from '@angular/core';
 
-import { BloodType } from './blood-type.model';
-import { BloodTypeService } from './blood-type.service';
 import { FooterComponent } from './components/footer/footer.component';
 import { NavComponent } from './components/nav/nav.component';
+import { ContentComponent } from './components/content/content.component';
+import { DOCUMENT } from '@angular/common';
 import { ThemeService } from './components/nav/theme/theme.service';
 
 @Component({
@@ -13,38 +11,18 @@ import { ThemeService } from './components/nav/theme/theme.service';
   standalone: true,
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
-  imports: [FormsModule, FooterComponent, NavComponent],
+  imports: [FooterComponent, NavComponent, ContentComponent],
 })
-export class AppComponent implements OnInit {
-  title = 'Veja os tipos sanguíneos e suas compatibilidades';
 
-  bloodTypes: BloodType[] = [];
-
-  selectedType: string = '#';
-  receivesFrom: string[] = [];
-  donateTo: string[] = [];
-
+export class AppComponent {
   constructor(
     @Inject(DOCUMENT) private document: Document,
-    private themeService: ThemeService,
-    private bloodTypeService: BloodTypeService
+    private themeService: ThemeService
   ) {
     const theme = this.themeService.getPreferredTheme();
     const isDark = theme === 'dark' ? true : false;
     this.themeService.setTheme(isDark);
     this.setBasePath();
-  }
-
-  ngOnInit() {
-    this.bloodTypes = this.bloodTypeService.bloodTypes;
-  }
-
-  selectType(bloodType: EventTarget | null) {
-    if (!bloodType) return;
-
-    this.selectedType = (bloodType as HTMLSelectElement).value;
-    this.receivesFrom = this.bloodTypeService.receivesFrom(this.selectedType);
-    this.donateTo = this.bloodTypeService.donateTo(this.selectedType);
   }
 
   private setBasePath() {

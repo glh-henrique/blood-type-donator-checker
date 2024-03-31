@@ -1,5 +1,4 @@
-import { BloodType } from "./blood-type.model";
-
+import { BloodType } from "../model/blood-type.model";
 
 export const bloodTypes: BloodType[] = [
   {

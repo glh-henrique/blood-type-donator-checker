@@ -1,0 +1,95 @@
+<div class="container custom-container">
+  <h1 class="title">{{ title }}</h1>
+
+  <div class="row controler-mobile">
+    <div class="col col-md-6 col-sm-12 mb-4">
+      <div class="container-select">
+        <select
+          class="form-select"
+          aria-label="select blood type"
+          [(ngModel)]="selectedType"
+          (change)="selectType($event.target)"
+        >
+          <option value="#" selected>Selecione um tipo de sangue</option>
+          @for (blood of bloodTypes; track blood.type) {
+          <option value="{{ blood.type }}">{{ blood.type }}</option>
+          }
+        </select>
+      </div>
+
+      <div class="container-result">
+        <div class="card mb-3">
+          <div class="row g-0">
+            <div class="col-md-4 container-type-selected">
+              <p class="card-title">Tipo selecionado:</p>
+              <span class="selected-blood-type">{{ selectedType }}</span>
+            </div>
+            <div class="col-md-8">
+              <div class="card-body border-left">
+                <p>Você pode receber sangue dos tipos:</p>
+                <ul>
+                  @for (bloodType of receivesFrom; track bloodType) {
+                  <li>{{ bloodType }}</li>
+                  } @empty {
+                  <li>####</li>
+                  }
+                </ul>
+
+                <p>Você pode doar sangue para os tipos:</p>
+                <ul>
+                  @for (bloodType of donateTo; track bloodType) {
+                  <li>{{ bloodType }}</li>
+                  } @empty {
+                  <li>####</li>
+                  }
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="d-grid gap-2">
+        <button class="btn btn-outline-primary" type="button">Button</button>
+      </div>
+    </div>
+
+    <div class="col col-md-6 col-sm-12">
+      <div class="clearfix">
+        <img
+          src="assets/blood-transfu-vector.png"
+          class="img-mobile-width col-md-6 float-md-end mb-3 ms-md-3 col-sm-12 col-xs-12"
+          alt="blood transfusion"
+        />
+
+        <p>
+          Bem-vindo ao <strong>Blood Type Checker</strong> seu guia confiável
+          para entender melhor o seu tipo sanguíneo e como ele pode impactar
+          suas doações e recebimentos. Descubra a chave para salvar vidas
+          através da doação de sangue de forma consciente e eficaz.
+        </p>
+
+        <p>
+          Seja você um doador regular ou alguém que está considerando doar pela
+          primeira vez, entender o seu tipo sanguíneo é fundamental. O intuito
+          do site oferece uma plataforma simples e intuitiva para ajudá-lo a
+          determinar seu tipo sanguíneo e fornecer informações essenciais sobre
+          compatibilidade de doação.
+        </p>
+
+        <p>
+          Com o Blood Type Checker, você terá acesso a recursos abrangentes
+          sobre os diferentes tipos sanguíneos, suas características distintas e
+          quais são compatíveis entre si para doação e transfusão. Junte-se a
+          nós nesta missão vital de salvar vidas. Explore o Blood Type Checker
+          hoje mesmo e descubra como seu tipo sanguíneo pode fazer a diferença
+          no mundo.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <app-maps></app-maps>
+  </div>
+</div>

@@ -34,7 +34,6 @@ jobs:
         run: npm run build
 
       - name: Upload Pages artifact
-        # v3 é necessário porque as versões anteriores do upload-artifact foram descontinuadas:contentReference[oaicite:2]{index=2}
         uses: actions/upload-pages-artifact@v3
         with:
           path: dist/blood-type-donator-checker
@@ -47,5 +46,4 @@ jobs:
       url: ${{ steps.deploy.outputs.page_url }}
     steps:
       - id: deploy
-        # v4 é a versão recomendada para evitar o erro de descontinuação:contentReference[oaicite:3]{index=3}
         uses: actions/deploy-pages@v4

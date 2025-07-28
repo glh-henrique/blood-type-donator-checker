@@ -3,12 +3,11 @@
   width="100%"
   [center]="center"
   [zoom]="zoom"
-  [options]="options"
->
-   <map-marker
-  &#42;ngFor="let marker of markers"
-  [position]="marker.position"
-  [label]="marker.label"
-></map-marker>
-
+  [options]="options">
+  @for (marker of markers; track marker) {
+    <map-marker
+      [position]="marker.position"
+      [label]="marker.label">
+    </map-marker>
+  }
 </google-map>

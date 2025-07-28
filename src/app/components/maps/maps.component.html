@@ -5,9 +5,10 @@
   [zoom]="zoom"
   [options]="options"
 >
-  <map-marker
-    *ngFor="let marker of markers"
-    [position]="marker.position"
-    [label]="marker.label"
-  ></map-marker>
+   <map-marker
+  &#42;ngFor="let marker of markers"
+  [position]="marker.position"
+  [label]="marker.label"
+></map-marker>
+
 </google-map>

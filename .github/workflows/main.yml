@@ -3,14 +3,13 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main  # Change if your default branch is not 'main'
+      - main
 
 permissions:
-  contents: read        # Allow checkout of repository code
-  pages: write          # Allow deployment to GitHub Pages
-  id-token: write       # Required for deploy-pages action
+  contents: read
+  pages: write
+  id-token: write
 
-# Prevent concurrent deployments
 concurrency:
   group: 'pages'
   cancel-in-progress: true
@@ -25,19 +24,20 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'   # Angular 17 requires Node >= 18
+          node-version: '20'
           cache: 'npm'
 
       - name: Install dependencies
         run: npm install
 
       - name: Build site
-        run: npm run build  # runs ng build with --base-href=/blood-type-donator-checker/:contentReference[oaicite:2]{index=2}
+        run: npm run build
 
       - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v1
+        # v3 é necessário porque as versões anteriores do upload-artifact foram descontinuadas:contentReference[oaicite:2]{index=2}
+        uses: actions/upload-pages-artifact@v3
         with:
-          path: dist/blood-type-donator-checker  # output directory:contentReference[oaicite:3]{index=3}
+          path: dist/blood-type-donator-checker
 
   deploy:
     needs: build
@@ -47,4 +47,5 @@ jobs:
       url: ${{ steps.deploy.outputs.page_url }}
     steps:
       - id: deploy
-        uses: actions/deploy-pages@v1
+        # v4 é a versão recomendada para evitar o erro de descontinuação:contentReference[oaicite:3]{index=3}
+        uses: actions/deploy-pages@v4
